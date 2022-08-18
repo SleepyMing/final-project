@@ -4,7 +4,7 @@
 
 .tpt-login {
 	width: 360px;
-	height: 470px;
+	height: 320px;
 	padding: 50px 30px;
 	background: #FFF;
 	border-radius: 8px;
@@ -19,7 +19,7 @@
 .tpt-login h2 {
 	font-size: 28px;
 	font-weight: 500;
-	padding-bottom: 30px;
+	padding-bottom: 50px;
 	text-align: center;
 	color: #333;
 }
@@ -79,17 +79,11 @@
 
 
 <div class="tpt-login">
-    <h2>Sign up</h2>
+    <h2>Reset Password</h2>
     <form action="" method="post">
         {% csrf_token %}
-    {{ form }}
-	<p>
-    <span><i></i></span>I agree
-    </p>
-	<p>
-		Already have an account?
-		<a href="{% url 'users:login' %}" target="_blank">Login</a>
-		</p>
-    <button>Sign up</button>
+	    {{ form }}
+        {{ form.errors }}
+        <button type="submit">Reset</button>
     </form>
 </div>

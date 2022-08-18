@@ -31,3 +31,16 @@ class RegisterForm(forms.ModelForm):
         if self.cleaned_data['password'] != self.cleaned_data['password1']:
             raise forms.ValidationError('The passwords entered twice do not match!')
         return self.cleaned_data['password1']
+
+
+class ForgetPwdForm(forms.Form):
+    """Fill out the email address form"""
+    email = forms.EmailField(label='', min_length=4, widget=forms.EmailInput(attrs={
+        'class': 'input', 'placeholder': 'Username/email'
+    }))
+
+
+class ChangePwdForm(forms.Form):
+    """change password"""
+    password = forms.CharField(label='', min_length=6, 
+		widget=forms.PasswordInput(attrs={'class':'input', 'placeholder':'new password'}))

@@ -148,3 +148,12 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+EMAIL_HOST = 'smtp.163.com'   # The host used to send email.
+EMAIL_HOST_USER = "sleepy_bear0326@163.com"    # own email address
+EMAIL_HOST_PASSWORD = "MRWKTUAVAUKVYKLC"       # own email password
+EMAIL_PORT = 465                     # The port used for the SMTP server defined in
+EMAIL_USE_SSL = True             # whether to use an implicit secure connection
+
+
+# Email_BACKEND = 'django.core.email.backends.console.EmailBackend'

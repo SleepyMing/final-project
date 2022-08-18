@@ -1,5 +1,6 @@
 from email.mime import image
 from email.policy import default
+from random import choices
 from tabnanny import verbose
 from unittest.util import _MAX_LENGTH
 from django.db import models
@@ -27,3 +28,22 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.owner.username
+
+
+class EmailVerifyRecord(models.Model):
+    '''email verifycation record'''
+    SEND_TYPE_CHOICE = (
+        ('register','register'),
+        ('forget','forget password'),
+    )
+
+    code = models.CharField('code', max_length=20)
+    email = models.EmailField('email', max_length=35)
+    send_type = models.CharField(choices=SEND_TYPE_CHOICE, default='register', max_length=20)
+
+    class Meta:
+        verbose_name = 'verification code'
+        verbose_name_plural = verbose_name
+
+    def __str__(self):
+            return self.code
